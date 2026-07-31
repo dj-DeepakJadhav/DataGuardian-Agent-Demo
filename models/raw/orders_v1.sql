@@ -1,0 +1,1 @@
+SELECT id as order_id, customer_guid as customer_id, amount_usd as amount_usd, created_at FROM source_orders
