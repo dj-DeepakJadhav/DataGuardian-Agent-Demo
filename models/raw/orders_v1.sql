@@ -1,0 +1,1 @@
+SELECT id as order_id, COALESCE(user_id, 'UNKNOWN_GUEST') as customer_id, total_amount as amount_usd, created_at FROM source_orders
