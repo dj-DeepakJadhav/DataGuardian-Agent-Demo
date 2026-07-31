@@ -1,0 +1,20 @@
+# DataGuardian Codebase Knowledge Graph & Token Optimization Rules
+
+# Codebase Knowledge Graph (codebase-memory-mcp)
+
+This project uses codebase-memory-mcp to maintain a knowledge graph of the codebase.
+ALWAYS prefer MCP graph tools over grep/glob/file-search for code discovery to optimize token usage.
+
+## Priority Order for Token Savings:
+1. `search_graph` — Find functions, classes, routes, variables by pattern
+2. `trace_path` — Trace who calls a function or what it calls
+3. `get_code_snippet` — Read specific function/class source code
+4. `query_graph` — Run Cypher queries for complex patterns
+5. `get_architecture` — High-level project summary
+
+## DataGuardian MCP Native Tools (backend/datahub/mcp_client.py)
+- `mcp_get_lineage(urn)` — Traverses 10+ node graph downstream
+- `mcp_get_schema(urn)` — Retrieves entity schema & SQL definition
+- `mcp_apply_quarantine_tag(urn, reason)` — Tags damaged entities as QUARANTINED
+- `mcp_update_deprecation(urn, note)` — Sets deprecation aspect
+- `mcp_patch_sql(urn, new_sql)` — Restores HEALTHY status
